@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import CacheDriver from '../cache/cache-driver.js';
 import axios from 'axios';
-import { createClient } from 'redis';
+import { createClient } from '../cache/cache-driver.js';
+// import { createClient } from 'redis';
 
 const router = Router();
-const cacheDriver = new CacheDriver();
-// const cacheDriver = createClient();
-// await cacheDriver.connect();
+const cacheDriver = createClient();
+await cacheDriver.connect();
 
 const { CACHE_DEFAULT_EXPIRATION } = process.env;
 
