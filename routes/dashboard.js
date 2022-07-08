@@ -33,12 +33,8 @@ router.get('/total-de-processos', async (req, res, next) => {
     }
     res.json(responseData);
   } catch (error) {
-    next(error);
+    return res.send(error.toString());
   }
-});
-
-router.use((req, res) => {
-  res.send('DEU ERRO');
 });
 
 export default router;
